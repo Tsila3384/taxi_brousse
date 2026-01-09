@@ -13,6 +13,11 @@ public class Place {
     @Column(name = "libelle", length = 50)
     private String libelle;
 
+    @Column(name = "statut")
+    private Boolean statut;
+
+
+
     public Place() {
     }
 
@@ -20,11 +25,17 @@ public class Place {
         this.libelle = libelle;
     }
 
-    public Place(Integer idPlace, String libelle) {
+    public Place(Integer idPlace, String libelle, Boolean statut) {
         this.idPlace = idPlace;
         this.libelle = libelle;
+        this.statut = statut;
     }
-
+    public Boolean getStatut() {
+        return statut;
+    }
+    public void setStatut(Boolean statut) {
+        this.statut = statut;
+    }
     public Integer getIdPlace() {
         return idPlace;
     }
