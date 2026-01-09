@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Brousse - Gestion de Transport</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>🚕 Taxi Brousse</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-section="dashboard">
+                    <span class="icon">📊</span> Tableau de Bord
+                </button>
+                <button class="nav-btn" data-section="voitures">
+                    <span class="icon">🚗</span> Voitures
+                </button>
+                <button class="nav-btn" data-section="clients">
+                    <span class="icon">👤</span> Clients
+                </button>
+                <button class="nav-btn" data-section="employes">
+                    <span class="icon">👨‍💼</span> Employés
+                </button>
+                <button class="nav-btn" data-section="voyages">
+                    <span class="icon">✈️</span> Voyages
+                </button>
+                <button class="nav-btn" data-section="reservations">
+                    <span class="icon">📋</span> Réservations
+                </button>
+                <button class="nav-btn" data-section="paiements">
+                    <span class="icon">💳</span> Paiements
+                </button>
+                <button class="nav-btn" data-section="lieux">
+                    <span class="icon">📍</span> Lieux
+                </button>
+                <button class="nav-btn" data-section="genres">
+                    <span class="icon">👥</span> Genres
+                </button>
+                <button class="nav-btn" data-section="places">
+                    <span class="icon">🪑</span> Places
+                </button>
+                <button class="nav-btn" data-section="utilisateurs">
+                    <span class="icon">🔐</span> Utilisateurs
+                </button>
+                <button class="nav-btn" data-section="itineraires">
+                    <span class="icon">🗺️</span> Itinéraires
+                </button>
+                <button class="nav-btn" data-section="typevoyages">
+                    <span class="icon">🚌</span> Types Voyage
+                </button>
+                <button class="nav-btn" data-section="typepaiements">
+                    <span class="icon">💰</span> Types Paiement
+                </button>
+                <button class="nav-btn" data-section="typemouvements">
+                    <span class="icon">📊</span> Types Mouvement
+                </button>
+                <button class="nav-btn" data-section="statuts">
+                    <span class="icon">✅</span> Statuts
+                </button>
+                <button class="nav-btn" data-section="etats">
+                    <span class="icon">📌</span> États
+                </button>
+                <button class="nav-btn" data-section="caisses">
+                    <span class="icon">💵</span> Caisses
+                </button>
+                <button class="nav-btn" data-section="parametres">
+                    <span class="icon">⚙️</span> Paramètres
+                </button>
+                <button class="nav-btn" data-section="entretiens">
+                    <span class="icon">🔧</span> Entretiens
+                </button>
+                <button class="nav-btn" data-section="mouvements">
+                    <span class="icon">💹</span> Mouvements
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h2 id="page-title">Tableau de Bord</h2>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="add-btn" style="display:none;">
+                        ➕ Ajouter
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🚗</div>
+                        <div class="stat-info">
+                            <h3>Voitures</h3>
+                            <p class="stat-number" id="stat-voitures">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👤</div>
+                        <div class="stat-info">
+                            <h3>Clients</h3>
+                            <p class="stat-number" id="stat-clients">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👨‍💼</div>
+                        <div class="stat-info">
+                            <h3>Employés</h3>
+                            <p class="stat-number" id="stat-employes">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✈️</div>
+                        <div class="stat-info">
+                            <h3>Voyages</h3>
+                            <p class="stat-number" id="stat-voyages">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📋</div>
+                        <div class="stat-info">
+                            <h3>Réservations</h3>
+                            <p class="stat-number" id="stat-reservations">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💳</div>
+                        <div class="stat-info">
+                            <h3>Paiements</h3>
+                            <p class="stat-number" id="stat-paiements">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📍</div>
+                        <div class="stat-info">
+                            <h3>Lieux</h3>
+                            <p class="stat-number" id="stat-lieux">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>Genres</h3>
+                            <p class="stat-number" id="stat-genres">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🪑</div>
+                        <div class="stat-info">
+                            <h3>Places</h3>
+                            <p class="stat-number" id="stat-places">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔐</div>
+                        <div class="stat-info">
+                            <h3>Utilisateurs</h3>
+                            <p class="stat-number" id="stat-utilisateurs">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🗺️</div>
+                        <div class="stat-info">
+                            <h3>Itinéraires</h3>
+                            <p class="stat-number" id="stat-itineraires">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚌</div>
+                        <div class="stat-info">
+                            <h3>Types Voyage</h3>
+                            <p class="stat-number" id="stat-typevoyages">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3>Types Paiement</h3>
+                            <p class="stat-number" id="stat-typepaiements">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <h3>Types Mouvement</h3>
+                            <p class="stat-number" id="stat-typemouvements">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3>Statuts</h3>
+                            <p class="stat-number" id="stat-statuts">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📌</div>
+                        <div class="stat-info">
+                            <h3>États</h3>
+                            <p class="stat-number" id="stat-etats">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💵</div>
+                        <div class="stat-info">
+                            <h3>Caisses</h3>
+                            <p class="stat-number" id="stat-caisses">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚙️</div>
+                        <div class="stat-info">
+                            <h3>Paramètres</h3>
+                            <p class="stat-number" id="stat-parametres">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔧</div>
+                        <div class="stat-info">
+                            <h3>Entretiens</h3>
+                            <p class="stat-number" id="stat-entretiens">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💹</div>
+                        <div class="stat-info">
+                            <h3>Mouvements</h3>
+                            <p class="stat-number" id="stat-mouvements">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voitures Section -->
+            <section id="voitures" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher une voiture...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Immatriculation</th>
+                                <th>Nombre de Places</th>
+                                <th>Consommation</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="voitures-table">
+                            <tr class="empty-row">
+                                <td colspan="5">Aucune voiture trouvée</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un client...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Téléphone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clients-table">
+                            <tr class="empty-row">
+                                <td colspan="4">Aucun client trouvé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Employés Section -->
+            <section id="employes" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un employé...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Téléphone</th>
+                                <th>Genre</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employes-table">
+                            <tr class="empty-row">
+                                <td colspan="5">Aucun employé trouvé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Voyages Section -->
+            <section id="voyages" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un voyage...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Chauffeur</th>
+                                <th>Aide Chauffeur</th>
+                                <th>Voiture</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="voyages-table">
+                            <tr class="empty-row">
+                                <td colspan="6">Aucun voyage trouvé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Réservations Section -->
+            <section id="reservations" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher une réservation...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Client</th>
+                                <th>Voyage</th>
+                                <th>Nombre de Personnes</th>
+                                <th>Statut Paiement</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservations-table">
+                            <tr class="empty-row">
+                                <td colspan="7">Aucune réservation trouvée</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Paiements Section -->
+            <section id="paiements" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un paiement...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Montant</th>
+                                <th>Réservation</th>
+                                <th>Type de Paiement</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paiements-table">
+                            <tr class="empty-row">
+                                <td colspan="6">Aucun paiement trouvé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Lieux Section -->
+            <section id="lieux" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un lieu...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lieux-table">
+                            <tr class="empty-row">
+                                <td colspan="3">Aucun lieu trouvé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Genres Section -->
+            <section id="genres" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un genre...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="genres-table">
+                            <tr class="empty-row"><td colspan="3">Aucun genre trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Places Section -->
+            <section id="places" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher une place...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="places-table">
+                            <tr class="empty-row"><td colspan="4">Aucune place trouvée</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Utilisateurs Section -->
+            <section id="utilisateurs" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un utilisateur...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Mot de passe</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="utilisateurs-table">
+                            <tr class="empty-row"><td colspan="4">Aucun utilisateur trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Itinéraires Section -->
+            <section id="itineraires" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un itinéraire...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Durée</th>
+                                <th>Lieu Départ</th>
+                                <th>Lieu Arrivée</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itineraires-table">
+                            <tr class="empty-row"><td colspan="5">Aucun itinéraire trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Types Voyage Section -->
+            <section id="typevoyages" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un type de voyage...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Prix</th>
+                                <th>Itinéraire</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="typevoyages-table">
+                            <tr class="empty-row"><td colspan="4">Aucun type de voyage trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Types Paiement Section -->
+            <section id="typepaiements" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un type de paiement...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="typepaiements-table">
+                            <tr class="empty-row"><td colspan="3">Aucun type de paiement trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Types Mouvement Section -->
+            <section id="typemouvements" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un type de mouvement...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="typemouvements-table">
+                            <tr class="empty-row"><td colspan="3">Aucun type de mouvement trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Statuts Section -->
+            <section id="statuts" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un statut...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statuts-table">
+                            <tr class="empty-row"><td colspan="3">Aucun statut trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- États Section -->
+            <section id="etats" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un état...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="etats-table">
+                            <tr class="empty-row"><td colspan="3">Aucun état trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Caisses Section -->
+            <section id="caisses" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher une caisse...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Solde</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="caisses-table">
+                            <tr class="empty-row"><td colspan="4">Aucune caisse trouvée</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Paramètres Section -->
+            <section id="parametres" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un paramètre...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Libellé</th>
+                                <th>Valeur</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parametres-table">
+                            <tr class="empty-row"><td colspan="4">Aucun paramètre trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Entretiens Section -->
+            <section id="entretiens" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un entretien...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Voiture</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="entretiens-table">
+                            <tr class="empty-row"><td colspan="3">Aucun entretien trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Mouvements Section -->
+            <section id="mouvements" class="section">
+                <div class="section-header">
+                    <input type="text" class="search-input" placeholder="Rechercher un mouvement...">
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type Mouvement</th>
+                                <th>Caisse</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mouvements-table">
+                            <tr class="empty-row"><td colspan="4">Aucun mouvement trouvé</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Form -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Ajouter</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="entity-form">
+                <div id="form-fields">
+                    <!-- Fields will be dynamically generated -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alert/Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
